@@ -13,11 +13,11 @@ void interpreter(char *filename)
 	openStream(filename);
 	for (; getline(&data->line, &buff, data->stream) != -1;)
 	{
+		fflush(NULL);
 		data->line_number += 1;
 		genTokens();
 		parseInstractions();
 		runInstruction();
-		fflush(stderr);
 		freeTokens();
 	}
 	garbageCollection();

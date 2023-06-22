@@ -9,10 +9,11 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *s = *stack;
 
-	if (!data || data->n_tokens <= 1 || !(checknumber(data->tokens[1])))
+	fflush(stderr);
+	if (data->n_tokens <= 1 || !(checknumber(data->tokens[1])))
 	{
-		garbageCollection();
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		garbageCollection();
 		exit(EXIT_FAILURE);
 	}
 	s = malloc(sizeof(stack_t));
