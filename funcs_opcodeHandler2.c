@@ -21,3 +21,13 @@ void add(stack_t **stack, unsigned int line_number)
 	data->stack_length -= 1;
 	(void) stack;
 }
+/**
+ * nop - do nothing
+ * @stack: affected stack.
+ * @line_number: number of the executed line.
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void) line_number;
+	(void) stack;
+}

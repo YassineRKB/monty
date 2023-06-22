@@ -12,6 +12,7 @@ void parseInstractions(void)
 		{"pop", &pop},
 		{"swap", &swap},
 		{"add", &add},
+		{"nop", &nop},
 		{NULL, NULL}
 	};
 	int i = 0;
