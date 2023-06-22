@@ -23,6 +23,12 @@ void parseInstractions(void)
 
 	if (data->n_tokens == 0)
 		return;
+	if (data->tokens[0][0] == '#')
+	{
+		data->instruction->opcode = "nop";
+		data->instruction->f = nop;
+		return;
+	}
 	while (instructions[i].opcode != NULL)
 	{
 		if (strcmp(instructions[i].opcode, data->tokens[0]) == 0)
