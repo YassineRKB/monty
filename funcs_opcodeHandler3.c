@@ -102,3 +102,31 @@ void rotl(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 }
+/**
+ * rotr - opcode to rotate the stack to the bottom
+ * @stack: affected stack.
+ * @line_number: number of the executed line.
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *newstack1, *newstack2;
+
+	if (data->stack_length < 2)
+		return;
+	newstack1 = data->head;
+	while (newstack1)
+	{
+		if (!newstack1->next)
+		{
+			newstack2 = newstack1;
+			break;
+		}
+		newstack1 = newstack1->next;
+	}
+	newstack2->prev->next = NULL;
+	newstack2->next = data->head;
+	newstack2 = NULL;
+	data->head = newstack2;
+	(void) stack;
+	(void) line_number;
+}
