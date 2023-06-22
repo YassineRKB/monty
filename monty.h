@@ -51,7 +51,10 @@ typedef struct instruction_s
  * @line_number: line number
  * @tokens: tokens
  * @n_tokens: number of tokens
- * @instructions: instructions
+ * @instruction: instructions
+ * @head: top of stack
+ * @stack: structure
+ * @stack_length: checks number of nodes in linked list
  * Description: global pointer with various members
  * to be intialized at the start of the program
 */
@@ -71,7 +74,7 @@ extern arg_t *data;
 
 /* monty funcs */
 void interpreter(char *filename);
-void garbageCollection();
+void garbageCollection(void);
 
 /* Argument&Data funcs */
 void ifValidArgs(int ac);
@@ -100,6 +103,4 @@ void invalidInstructionHandler(void);
 /* opcode funcs */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-
-
 #endif
