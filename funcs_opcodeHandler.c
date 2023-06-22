@@ -97,3 +97,29 @@ void pop(stack_t **stack, unsigned int line_number)
 	data->stack_length -= 1;
 	(void) stack;
 }
+/**
+ * swap - Swaps the top two elements of the stack.
+ * @stack: Pointer to the stack.
+ * @line_number: Line number where the swap function is called.
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *nstack1, *nstack2;
+
+	if (data->stack_length < 2)
+	{
+		dprintf(2, "L%d: can't swap, stack too short\n", line_number);
+		garbageCollection();
+		exit(EXIT_FAILURE);
+	}
+	nstack1 = data->head;
+	nstack2 = nstack1->next;
+	nstack1->next = nstack2->next;
+	if (nstack1->next)
+		nstack1->next->prev = nstack1;
+	nstack2->next = nstack1;
+	nstack1->prev = nstack2;
+	nstack2->prev = NULL;
+	data->head = nstack2;
+	(void) stack;
+}
