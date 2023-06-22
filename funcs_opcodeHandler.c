@@ -68,7 +68,6 @@ void pall(stack_t **stack, unsigned int line_number)
  * @stack: affected stack.
  * @line_number: number of the executed line.
  */
-
 void pint(stack_t **stack, unsigned int line_number)
 {
 	if (!data->head)
@@ -80,4 +79,25 @@ void pint(stack_t **stack, unsigned int line_number)
 	printf("%d\n", data->head->n);
 	(void) stack;
 	fflush(stdout);
+}
+/**
+ * pop - pops top element of the stack.
+ * @stack: affected stack
+ * @line_number: number of the executed line.
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *newstack;
+
+	if (data->head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		garbageCollection();
+		exit(EXIT_FAILURE);
+	}
+	newstack = data->head;
+	data->head = newstack->next;
+	free(newstack);
+	data->stack_length -= 1;
+	(void) stack;
 }
