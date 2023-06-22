@@ -55,9 +55,9 @@ void sub(stack_t **stack, unsigned int line_number)
 	(void) stack;
 }
 /**
- * _div - Divides the second top element of the stack by the top element.
- * @stack: Pointer to the stack.
- * @line_number: Line number where the _div function is called.
+ * ddiv - opcode to Divide second top element by the top element.
+ * @stack: affected stack.
+ * @line_number: number of the executed line.
  */
 
 void ddiv(stack_t **stack, unsigned int line_number)
@@ -79,6 +79,29 @@ void ddiv(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	newstack2->n = newstack2->n / newstack1->n;
+	popTopStack();
+	data->stack_length -= 1;
+	(void) stack;
+}
+/**
+ * mul - Divides the second top element of the stack by the top element.
+ * @stack: affected stack.
+ * @line_number: number of the executed line.
+ */
+
+void mul(stack_t **stack, unsigned int line_number)
+{
+	stack_t *newstack1, *newstack2;
+
+	if (data->stack_length < 2)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		garbageCollection();
+		exit(EXIT_FAILURE);
+	}
+	newstack1 = data->head;
+	newstack2 = newstack1->next;
+	newstack2->n = newstack2->n * newstack1->n;
 	popTopStack();
 	data->stack_length -= 1;
 	(void) stack;
