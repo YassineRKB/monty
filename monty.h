@@ -2,12 +2,18 @@
 #define _LIB_MONTY_
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+#include <stdlib.h>
+#include <stddef.h>
 #include <fcntl.h>
+#include <unistd.h>
 
-#define DELIM " \t\n"
+#define DELIM " \n"
+#define PORPER_USAGE "USAGE: monty file\n"
+#define STREAM_ERROR "Error: Can't open file %s\n"
+#define UNKNOW_INSTRUCT "L%d: unknown instruction %s\n"
+#define PUSH_ERROR "L%d: usage: push integer\n"
+#define MALLOC_ERR "Error: malloc failed\n"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -38,8 +44,62 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct arg_s - arguments struct with memebers
+ * @stream: stream
+ * @line: line
+ * @line_number: line number
+ * @tokens: tokens
+ * @n_tokens: number of tokens
+ * @instructions: instructions
+ * Description: global pointer with various members
+ * to be intialized at the start of the program
+*/
+typedef struct arg_s
+{
+	stack_t *head;
+	int stack;
+	int stack_length;
+	FILE *stream;
+	char *line;
+	unsigned int line_number;
+	char **tokens;
+	int n_tokens;
+	instruction_t *instruction;
+} arg_t;
+extern arg_t *data;
 
+/* monty funcs */
+void interpreter(char *filename);
+void garbageCollection();
+
+/* Argument&Data funcs */
 void ifValidArgs(int ac);
-void push(int i);
-void pall(void);
+void dataInit(void);
+void mallocErrorHandler(void);
+void freeData(void);
+int checknumber(char *str);
+void freeStack(stack_t *h);
+
+/* stream funcs */
+void streamErrorHandler(char *filename);
+void openStream(char *filename);
+void closeStream(void);
+int getline(char **line, size_t *n, FILE *stream);
+
+/* token funcs */
+void genTokens(void);
+void freeTokens(void);
+
+/* instructions funcs */
+void parseInstractions(void);
+void runInstruction(void);
+void invalidInstructionHandler(void);
+
+
+/* opcode funcs */
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+
+
 #endif
