@@ -63,3 +63,20 @@ void pall(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	(void) stack;
 }
+/**
+ * pint - prints top of the stack.
+ * @stack: affected stack.
+ * @line_number: number of the executed line.
+ */
+
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (!data->head)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		garbageCollection();
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", data->head->n);
+	(void) stack;
+}
