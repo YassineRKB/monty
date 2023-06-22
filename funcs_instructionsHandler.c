@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * get_instructions - func to get instructions from tokens
+ * parseInstractions - func to get instructions from tokens
  * Return: void
 */
 void parseInstractions(void)
@@ -27,7 +27,7 @@ void parseInstractions(void)
 	invalidInstructionHandler();
 }
 /**
- * invlaid_instruction - func to handle invalid instruction
+ * invalidInstructionHandler - func to handle invalid instruction
  * Return: void
 */
 void invalidInstructionHandler(void)
@@ -41,7 +41,7 @@ void invalidInstructionHandler(void)
 	exit(EXIT_FAILURE);
 }
 /**
- * run_instruction - func to run instructions
+ * runInstruction - func to run instructions
  * Return: void
 */
 void runInstruction(void)
