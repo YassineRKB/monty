@@ -6,18 +6,9 @@
 */
 void openStream(char *filename)
 {
-	int fileDesc;
-
-	fileDesc = open(filename, O_RDONLY);
-	if (fileDesc == -1)
+	data->stream = fopen(filename, "r");
+	if (!data->stream)
 		streamErrorHandler(filename);
-
-	data->stream = fdopen(fileDesc, "r");
-	if (data->stream == NULL)
-	{
-		close(fileDesc);
-		streamErrorHandler(filename);
-	}
 }
 /**
  * streamErrorHandler - func to handl file i/o erro
