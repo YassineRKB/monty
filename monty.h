@@ -76,6 +76,7 @@ void mallocErrorHandler(void);
 void freeData(void);
 int checknumber(char *str);
 void freeStack(stack_t *h);
+void popTopStack(void);
 
 /* stream funcs */
 void streamErrorHandler(char *filename);
