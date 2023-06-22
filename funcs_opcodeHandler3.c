@@ -74,3 +74,31 @@ void pstr(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 }
+/**
+ * rotl - opcode to rotate the stack to the top
+ * @stack: affected stack.
+ * @line_number: number of the executed line.
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *newstack1, *newstack2;
+
+	if (data->stack_length < 2)
+		return;
+	newstack1 = data->head;
+	newstack2 = newstack1->next;
+	data->head = newstack2;
+	while (newstack2)
+	{
+		if (!newstack2->next)
+		{
+			newstack2->next = newstack1;
+			newstack1->next = NULL;
+			newstack1->prev = newstack2;
+			break;
+		}
+		newstack2 = newstack2->next;
+	}
+	(void) stack;
+	(void) line_number;
+}
