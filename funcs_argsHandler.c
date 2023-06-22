@@ -8,7 +8,7 @@ void ifValidArgs(int ac)
 {
 	if (ac == 2)
 		return;
-	fprintf(stderr, PORPER_USAGE);
+	fprintf(stderr, "USAGE: monty file\n");
 	exit(EXIT_FAILURE);
 }
 /**
@@ -37,7 +37,7 @@ void dataInit(void)
 */
 void mallocErrorHandler(void)
 {
-	fprintf(stderr, MALLOC_ERR);
+	fprintf(stderr, "Error: malloc failed\n");
 	garbageCollection();
 	exit(EXIT_FAILURE);
 }

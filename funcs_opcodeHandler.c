@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (!data || data->n_tokens <= 1 || !(checknumber(data->tokens[1])))
 	{
 		garbageCollection();
-		fprintf(stderr, PUSH_ERROR, line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	s = malloc(sizeof(stack_t));

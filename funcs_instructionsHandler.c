@@ -35,7 +35,7 @@ void invalidInstructionHandler(void)
 	int line = data->line_number;
 	char *tok = data->tokens[0];
 
-	fprintf(stderr, UNKNOW_INSTRUCT,
+	fprintf(stderr, "L%d: unknown instruction %s\n",
 	line, tok);
 	garbageCollection();
 	exit(EXIT_FAILURE);

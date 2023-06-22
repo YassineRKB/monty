@@ -17,7 +17,7 @@ void openStream(char *filename)
 */
 void streamErrorHandler(char *filename)
 {
-	fprintf(stderr, STREAM_ERROR, filename);
+	fprintf(stderr, "Error: Can't open file %s\n", filename);
 	garbageCollection();
 	exit(EXIT_FAILURE);
 }

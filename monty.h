@@ -8,13 +8,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define DELIM " \n"
-#define PORPER_USAGE "USAGE: monty file\n"
-#define STREAM_ERROR "Error: Can't open file %s\n"
-#define UNKNOW_INSTRUCT "L%d: unknown instruction %s\n"
-#define PUSH_ERROR "L%d: usage: push integer\n"
-#define MALLOC_ERR "Error: malloc failed\n"
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
