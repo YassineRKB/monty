@@ -59,7 +59,6 @@ void sub(stack_t **stack, unsigned int line_number)
  * @stack: affected stack.
  * @line_number: number of the executed line.
  */
-
 void ddiv(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newstack1, *newstack2;
