@@ -108,7 +108,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if (data->stack_length < 2)
 	{
-		dprintf(2, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		garbageCollection();
 		exit(EXIT_FAILURE);
 	}
