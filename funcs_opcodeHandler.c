@@ -98,9 +98,9 @@ void pop(stack_t **stack, unsigned int line_number)
 	(void) stack;
 }
 /**
- * swap - Swaps the top two elements of the stack.
- * @stack: Pointer to the stack.
- * @line_number: Line number where the swap function is called.
+ * swap - switch top two elements in stack.
+ * @stack: affected stack.
+ * @line_number: number of the executed line.
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
