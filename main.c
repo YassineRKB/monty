@@ -11,5 +11,5 @@ int main(int ac, char **av)
 	ifValidArgs(ac);
 	dataInit();
 	interpreter(av[1]);
-	return (0);
+	return (EXIT_SUCCESS);
 }
