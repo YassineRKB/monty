@@ -81,7 +81,7 @@ void freeStack(stack_t *h);
 void streamErrorHandler(char *filename);
 void openStream(char *filename);
 void closeStream(void);
-int getline(char **line, size_t *n, FILE *stream);
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 /* token funcs */
 void genTokens(void);
