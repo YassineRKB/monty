@@ -31,3 +31,26 @@ void nop(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	(void) stack;
 }
+/**
+ * sub - opcode to subtract top element from the second top element.
+ * @stack: affected stack.
+ * @line_number: number of the executed line.
+ */
+
+void sub(stack_t **stack, unsigned int line_number)
+{
+	stack_t *newstack1, *newstack2;
+
+	if (data->stack_length < 2)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		garbageCollection();
+		exit(EXIT_FAILURE);
+	}
+	newstack1 = data->head;
+	newstack2 = newstack1->next;
+	newstack2->n = newstack2->n - newstack1->n;
+	popTopStack();
+	data->stack_length -= 1;
+	(void) stack;
+}
