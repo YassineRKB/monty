@@ -53,3 +53,24 @@ void pchar(stack_t **stack, unsigned int line_number)
 	printf("%c\n", newstack->n);
 	(void) stack;
 }
+/**
+ * pstr - opcode to print the string on top of the stack, followed by a newline
+ * @stack: affected stack.
+ * @line_number: number of the executed line.
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *newstack;
+
+	newstack = data->head;
+	while (newstack != NULL)
+	{
+		if (newstack->n <= 0 || newstack->n > 127)
+			break;
+		printf("%c", newstack->n);
+		newstack = newstack->next;
+	}
+	printf("\n");
+	(void) stack;
+	(void) line_number;
+}
