@@ -73,6 +73,7 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	if (!data->head)
 	{
+		fflush(NULL);
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		garbageCollection();
 		exit(EXIT_FAILURE);
