@@ -18,9 +18,7 @@ void push(stack_t **stack, unsigned int line_number)
 	s = malloc(sizeof(stack_t));
 	if (!s)
 		mallocErrorHandler();
-	s->next = NULL;
-	s->prev = NULL;
-	s->n = 0;
+	s->next = s->prev = NULL;
 	s->n = (int) atoi(data->tokens[1]);
 	if (!data->head)
 		data->head = s;
