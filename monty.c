@@ -17,6 +17,7 @@ void interpreter(char *filename)
 		genTokens();
 		parseInstractions();
 		runInstruction();
+		fflush(stderr);
 		freeTokens();
 	}
 	garbageCollection();
