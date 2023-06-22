@@ -125,7 +125,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 	}
 	newstack2->prev->next = NULL;
 	newstack2->next = data->head;
-	newstack2 = NULL;
+	newstack2->prev = NULL;
 	data->head = newstack2;
 	(void) stack;
 	(void) line_number;
