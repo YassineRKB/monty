@@ -17,6 +17,7 @@ void parseInstractions(void)
 		{"div", &ddiv},
 		{"mul", &mul},
 		{"mod", &mod},
+		{"pchar", &pchar},
 		{NULL, NULL}
 	};
 	int i = 0;

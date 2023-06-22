@@ -27,3 +27,29 @@ void mod(stack_t **stack, unsigned int line_number)
 	data->stack_length -= 1;
 	(void) stack;
 }
+/**
+ * pchar - opcode tp print the char in top of the stack,
+ * followed by a new line
+ * @stack: affected stack.
+ * @line_number: number of the executed line.
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	stack_t *newstack;
+
+	if (data->head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		garbageCollection();
+		exit(EXIT_FAILURE);
+	}
+	newstack = data->head;
+	if (newstack->n < 0 || newstack->n > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		garbageCollection();
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", newstack->n);
+	(void) stack;
+}
