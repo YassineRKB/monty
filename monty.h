@@ -1,5 +1,5 @@
-#ifndef _LIB_MONTY_
-#define _LIB_MONTY_
+#ifndef _MONTY_H
+#define _MONTY_H
 
 #include <stdio.h>
 #include <string.h>
